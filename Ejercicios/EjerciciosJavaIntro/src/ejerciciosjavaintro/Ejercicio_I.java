@@ -18,7 +18,7 @@ public class Ejercicio_I {
         y calcule la suma de los dos.
         El programa deberá después mostrar el resultado de la suma*/
         
-        Scanner leer = new java.util.Scanner(System.in); // Creamos el Scanner
+        Scanner leer = new Scanner(System.in); // Creamos el Scanner
         
         System.out.println("Ingrese un numero entero");
         int numEntero = leer.nextInt(); // Leer un entero
