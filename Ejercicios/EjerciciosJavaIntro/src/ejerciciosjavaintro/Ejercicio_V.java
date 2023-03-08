@@ -20,6 +20,7 @@ public class Ejercicio_V {
         Nota: investigar la función Math.sqrt().*/
         
         Scanner leer=new Scanner(System.in);
+        
         System.out.println("Ingrese un Nro.");
         int nro=leer.nextInt();
         
