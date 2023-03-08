@@ -5,6 +5,8 @@
  */
 package ejerciciosjavaintro;
 
+import java.util.Scanner;
+
 /**
  *
  * @author fabia
@@ -16,6 +18,11 @@ public class Ejercicio_III {
         /*Escribir un programa que pida una frase y la muestre toda en mayúsculas y después toda en minúsculas. 
          Nota: investigar la función toUpperCase() y toLowerCase() en Java.*/
         
+        Scanner leer = new Scanner(System.in); // Creamos el Scanner
+        System.out.println("Escriba una frase:");
+        String frase=leer.nextLine();
         
+        System.out.println("MASYUSCULAS: "+frase.toUpperCase());
+        System.out.println("minusculas: "+frase.toLowerCase());
     }
 }
