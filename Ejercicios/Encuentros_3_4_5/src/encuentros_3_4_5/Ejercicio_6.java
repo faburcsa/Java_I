@@ -57,9 +57,9 @@ public class Ejercicio_6 {
                     break;
                 case 5:
                     System.out.println("¿Está seguro que desea salir del programa (S/N)?");
-                    String resp;
-                    resp = leer.next();
-                    if (resp.equals("S")) {
+                    char resp;
+                    resp = leer.next().charAt(0);
+                    if ( Character.toUpperCase(resp) == "S".charAt(0)) {
                         flag = true;
                     }
                     break;
