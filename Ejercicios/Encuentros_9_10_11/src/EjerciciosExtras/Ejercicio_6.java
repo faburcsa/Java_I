@@ -29,14 +29,17 @@ public class Ejercicio_6 {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         String[][] matriz = new String[20][20];
         String palabra = "";
-        int cantPalabras = 4;
+        int cantPalabras = 5; // Cantidad de Palabras a Ingresar
         int fila = 0;
+        
+        // Inicializo Matriz vacia
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 matriz[i][j] = " ";
             }
         }
 
+        //Ingreso Palabras de 3 a 5 caracteres.
         for (int i = 0; i < cantPalabras; i++) {
             do {
                 System.out.println("Ingresa una palabra de 3 a 5 caracteres");
