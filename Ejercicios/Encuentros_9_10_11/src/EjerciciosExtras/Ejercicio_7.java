@@ -32,7 +32,7 @@ public class Ejercicio_7 {
 
         String result;
         result = "";
-        a = 0;
+        a = 1;
         b = 1;
         for (i = 1; i <= x; i++) {
             result = result.concat(Integer.toString(a));
