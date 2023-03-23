@@ -8,7 +8,7 @@ package guia_7_poo_ejercicio_1;
 import Entidad.Circunferencia;
 import Entidad.Libro;
 import Entidad.Operacion;
-import Entidad.Puntos;
+import Entidad.Punto;
 import Entidad.Rectangulo;
 import java.util.Scanner;
 
@@ -84,7 +84,7 @@ public class Guia_7_POO_Ejercicio_1 {
         // =======================================================================
         // EJERCICIO EXTRA N. 2
         System.out.println("EJERCICIO EXTRA N. 2");
-        Puntos p1=new Puntos();
+        Punto p1=new Punto();
         
         p1.crearPuntos();
         System.out.println("Distancia entre puntos: "+p1.distancia());
