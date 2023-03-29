@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guia_7_poo_ejercicio_1;
+package guia_7_poo_ejercicios;
 
 import Entidad.Circunferencia;
 import Entidad.Libro;
@@ -22,7 +22,7 @@ import java.util.Scanner;
  * libro pidiendo los datos al usuario y luego informar mediante otro método el
  * número de ISBN, el título, el autor del libro y el número de páginas.
  */
-public class Guia_7_POO_Ejercicio_1 {
+public class Guia_7_POO_Ejercicios {
 
     /**
      * @param args the command line arguments

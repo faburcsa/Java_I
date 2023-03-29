@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guia_7_poo_ejercicio_1;
+package guia_7_poo_ejercicios;
 
 import Entidad.Producto;
 
