@@ -135,7 +135,7 @@ public class Cocina {
 
         for (int i = 0; i < cantRecetas; i++) {
             for (int j = 0; j < 2; j++) {
-                if (mReceta[i][j].contains(ingrediente)) {
+                if (mReceta[i][j].contains(ingrediente) && j>0 ) {
                     System.out.print("[" + mReceta[i][j - 1] + "]");
                     System.out.println("[" + mReceta[i][j] + "]");
                 }
