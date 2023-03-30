@@ -22,12 +22,15 @@ public class Guia_7_POO_Cocina {
      */
     public static void main(String[] args) {
         Cocina c1=new Cocina();
+        int cantSolicitaReceta=2; // Cantidad de recetas a acargar en la prueba
         
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < cantSolicitaReceta; i++) {
             c1.crearRecetas();
         }
         
         c1.buscarRecetas();
+        
+        //c1.buscarRecetasIngredientes();
         
     }
     

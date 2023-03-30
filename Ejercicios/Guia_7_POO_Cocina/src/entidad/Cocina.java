@@ -6,6 +6,7 @@
 package entidad;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -43,7 +44,6 @@ public class Cocina {
     public void buscarRecetas() {
         // arraylist [3] r0 r1 r2
         /// r0 nombre,ingrediente,auto;
-        //
         System.out.println("Ingrese nombre de receta a buscar: ");
         String nombre = entrada.next();
         for (Receta r : recetas) {
@@ -52,4 +52,19 @@ public class Cocina {
             }
         }
     }
+    
+        public List buscarRecetasIngredientes() {
+        System.out.println("Ingrese ingredientes en la receta a buscar: ");
+        String ingrediente = entrada.next();
+        
+        for (Receta r : recetas) {
+            recetas.forEach((ingredientes) -> {
+                System.out.println(recetas);
+                });
+            //if (r.getIngredientes().equalsIgnoreCase(ingredientes)) {
+            //    System.out.println(r); // es igual a, por estar en override: System.out.println(r);
+            }
+        return null;
+        }   
+    
 }
