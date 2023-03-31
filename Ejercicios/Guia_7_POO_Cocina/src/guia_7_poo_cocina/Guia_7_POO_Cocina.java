@@ -19,6 +19,10 @@ public class Guia_7_POO_Cocina {
 
     /**
      * @param args the command line arguments
+     * 
+     * https://www.cablenaranja.com/manejo-de-arraylist-en-java/
+     * 
+     * https://parzibyte.me/blog/2019/09/02/recorrer-arraylist-java-varios-metodos/#:~:text=Vamos%20a%20ver%203%20m%C3%A9todos%20para%20poder%20recorrer,ArrayList.%20Comenzamos%20definiendo%20un%20ArrayList%20y%20agreg%C3%A1ndole%20elementos
      */
     public static void main(String[] args) {
         Cocina c1=new Cocina();
