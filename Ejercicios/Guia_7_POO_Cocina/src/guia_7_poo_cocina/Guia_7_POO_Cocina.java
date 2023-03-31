@@ -30,7 +30,7 @@ public class Guia_7_POO_Cocina {
         
         c1.buscarRecetas();
         
-        //c1.buscarRecetasIngredientes();
+        c1.buscarPorIngrediente();
         
     }
     

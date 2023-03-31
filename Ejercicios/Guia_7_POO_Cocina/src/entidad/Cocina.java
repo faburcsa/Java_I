@@ -53,18 +53,30 @@ public class Cocina {
         }
     }
     
-        public List buscarRecetasIngredientes() {
-        System.out.println("Ingrese ingredientes en la receta a buscar: ");
+public void buscarPorIngrediente() {
+
+        System.out.println("Ingresa el ingrediente:");
+
         String ingrediente = entrada.next();
-        
+        String[] ingredientes;
+
         for (Receta r : recetas) {
-            recetas.forEach((ingredientes) -> {
-                System.out.println(recetas);
-                });
-            //if (r.getIngredientes().equalsIgnoreCase(ingredientes)) {
-            //    System.out.println(r); // es igual a, por estar en override: System.out.println(r);
+            boolean flag = false;
+            //System.out.println(r.toString()); // es igual a, por estar en override: System.out.println(r);
+            ingredientes = r.getIngredientes();
+            for (int i = 0; i < ingredientes.length; i++) {
+                //System.out.println((i + 1) + "-" + ingredientes[i]);
+
+                if (ingredientes[i].equalsIgnoreCase(ingrediente)) {
+                    flag = true;
+                }
             }
-        return null;
-        }   
+            if (flag) {
+
+                System.out.println(r.toString());
+            }
+
+        }
+    }
     
 }
