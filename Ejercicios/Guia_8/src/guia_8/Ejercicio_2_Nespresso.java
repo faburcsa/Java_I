@@ -58,7 +58,6 @@ public class Ejercicio_2_Nespresso {
         
         cfs.vaciarCafetera(cf1);
         cfs.servirTaza(600 , cf1);
-                
     }
     
 }
