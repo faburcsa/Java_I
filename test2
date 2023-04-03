@@ -1,0 +1,37 @@
+#!/bin/bash
+
+Cifrar() {
+    local -a Nums=(193 254 124 65 47 153 231 12 76 44 11 236 31 113 221 111 24 188)
+    local -a Clave=()
+    local -a Extra=()
+    local -i i=0
+    local -i j=0
+    local -i k=0
+    local -i len=0
+
+    Clave=($(echo -n "$1" | cut -c1-10 | grep -o .))
+    len=${#Clave[@]}
+
+    for ((i=0; i<$len; i++)); do
+        if [ "${Clave[$i]}" == " " ]; then
+            Clave[$i]=0
+        fi
+    done
+
+    Extra=($(for ((i=0; i<$len; i++)); do
+                ((j=$(printf '%d' "'${Clave[$i]}") ^ ${Nums[$i]}))
+                ((j=~$j))
+                ((k=j/26))
+                printf "%c" "$((65+(j%26)))"
+                printf "%c" "$((48+k))"
+            done))
+
+    echo "${Clave[*]}${Extra[*]}"
+}
+
+# Ejemplo de uso:
+texto="Hola, ¿cómo estás?"
+echo "Texto original: $texto"
+texto_cifrado=$(Cifrar "$texto")
+echo "Texto cifrado: $texto_cifrado"
+

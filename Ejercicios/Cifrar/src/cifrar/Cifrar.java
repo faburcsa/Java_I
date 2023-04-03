@@ -38,6 +38,7 @@ public class Cifrar {
         String mensajeCifrado = Cifrado.cifrar(mensaje);
 
         System.out.println("Mensaje cifrado: " + new String(mensajeCifrado));
+        System.out.println("Mensaje cifrado: " + new String(mensaje));
     }
 
 }

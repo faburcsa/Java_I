@@ -17,13 +17,13 @@ public class Persona {
     private String nombre;
     private int edad;
     private char sexo;
-    private float peso;
-    private float altura;
+    private double peso;
+    private double altura;
 
     public Persona() {
     }
 
-    public Persona(String nombre, int edad, char sexo, float peso, float altura) {
+    public Persona(String nombre, int edad, char sexo, double peso, double altura) {
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
@@ -55,20 +55,25 @@ public class Persona {
         this.sexo = sexo;
     }
 
-    public float getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
 
     public void setAltura(float altura) {
         this.altura = altura;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", edad=" + edad + ", sexo=" + sexo + ", peso=" + peso + ", altura=" + altura + '}';
     }
     
     
