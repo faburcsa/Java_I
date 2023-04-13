@@ -43,7 +43,6 @@ public class CadenaServicio {
                     break;
             }
         }
-
         return cont;
     }
 
@@ -52,6 +51,7 @@ public class CadenaServicio {
         * ingresada y mostrarla por pantalla. Por ejemplo: Entrada: "casa blanca",
         * Salida: "acnalb asac". 
         */
+        
         // for Inverso
         for (int i = c1.getLongitudFrase() - 1; i >= 0; i--) {
             System.out.print(c1.getFrase().charAt(i));
@@ -68,7 +68,6 @@ public class CadenaServicio {
         */
         int contador = 0;
         for (int i = 0; i < c1.getLongitudFrase(); i++) {
-
             if ((c1.getFrase().substring(i, i + 1).equals(letra))) {
                 contador++;
             }
@@ -82,7 +81,6 @@ public class CadenaServicio {
         * la frase que compone la clase con otra nueva frase ingresada por el usuario.
         */
         boolean resultado = false;
-
         if (frase.length() == c1.getLongitudFrase()) {
             resultado = true;
         }
@@ -96,9 +94,8 @@ public class CadenaServicio {
         * Cadena con una nueva frase ingresada por el usuario y mostrar la frase
         * resultante.
          */
-
         System.out.println(c1.getFrase() + " " + frase);
-
+        System.out.println(c1.getFrase().concat(" "+frase));
     }
 
     public void reemplazar(String letra, Cadena c1) {
@@ -109,7 +106,6 @@ public class CadenaServicio {
          */
 
         for (int i = 0; i < c1.getLongitudFrase(); i++) {
-
             if (c1.getFrase().charAt(i) == 'a') {
                 System.out.print(letra);
             } else {
@@ -132,11 +128,9 @@ public class CadenaServicio {
         for (int i = 0; i < c1.getLongitudFrase(); i++) {
 
             if (String.valueOf(c1.getFrase().charAt(i)).equals(letra)) {
-
                 contiene = true;
                 break;
             }
-
         }
         return contiene;
     }
