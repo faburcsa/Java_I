@@ -36,7 +36,10 @@ public class ArregloService {
 
     public void inicializarB(float[] arregloA, float[] arregloB) {
         // Método inicializarB copia los primeros 10 números del arreglo A en el arreglo B.
+        // Luego llenar las últimas 10 posiciones del arreglo B con 0.5.
+
         System.arraycopy(arregloA, 0, arregloB, 0, 10);
+        Arrays.fill(arregloB, 10, 20, 0.5f);
     }
 
 }
