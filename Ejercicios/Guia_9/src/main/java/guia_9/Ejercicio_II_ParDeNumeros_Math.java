@@ -5,21 +5,21 @@
 package guia_9;
 
 import guia9.entidades.ParDeNumeros;
-import guia9.servicios.ParDeNumerosServicio;
+import guia9.servicios.ParDeNumerosService;
 
 /**
  *
  * @author Fabian M. Urchueguia c1.getFrase()
  */
-public class Ejercicio_II_ParDeNumeros {
+public class Ejercicio_II_ParDeNumeros_Math {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        ParDeNumerosServicio pns = new ParDeNumerosServicio();
-        ParDeNumeros pn = new ParDeNumeros((float) Math.random() * 10, (float) Math.random() * 10);
+        ParDeNumerosService pns = new ParDeNumerosService();
+        ParDeNumeros pn = new ParDeNumeros();
 
         pns.mostrarValores(pn);
 

@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  *
  */
-public class Ejercicio_I_Cadena {
+public class Ejercicio_I_Cadena_String {
 
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
