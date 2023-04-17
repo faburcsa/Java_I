@@ -11,7 +11,8 @@ import java.util.ArrayList;
  * @author Fabian M. Urchueguia
  * * crearemos una clase entidad llamada Curso, cuyos atributos serán: 
 * nombreCurso, cantidadHorasPorDia, cantidadDiasPorSemana, turno (mañana o tarde),  
-* precioPorHora y alumnos. Donde alumnos es un arreglo de tipo String de dimensión 5 (cinco),
+* precioPorHora y alumnos. 
+* Donde alumnos es un arreglo de tipo String de dimensión 5 (cinco),
 * donde se alojarán los nombres de cada alumno. A continuación, se implementarán los siguientes métodos:
 Un constructor por defecto.
 Un constructor con todos los atributos como parámetro.
