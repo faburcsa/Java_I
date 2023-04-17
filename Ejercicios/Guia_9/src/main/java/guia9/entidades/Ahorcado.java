@@ -15,11 +15,11 @@ import java.util.Arrays;
  */
 public class Ahorcado {
 
-    private String[] palabra;
-    private String[] palabraShow;
+    private String[] palabra; // Vector donde almacenare la Palabra Secreta
+    private String[] palabraShow; // Vector donde ire acumulando las letras encontradas
     private int cantFound = 0;
     private int cantMaxJuegos;
-    private int longitud;
+    private int longitud; // Longitud de la palabra
 
     public int getLongitud() {
         return longitud;
@@ -37,7 +37,7 @@ public class Ahorcado {
         this.cantMaxJuegos = cantMaxJuegos;
         this.longitud = longitud;
         this.palabraShow = new String[palabra.length];
-        Arrays.fill(palabraShow, "");
+        Arrays.fill(palabraShow, ""); // Inicializo el Vector de Control con espacios vacios.
     }
 
     public String[] getPalabraShow() {
