@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class AhorcadoService {
 
-    public Ahorcado crearJuego() {
+    public static Ahorcado crearJuego() {
         //Metodo crearJuego(): le pide la palabra al usuario y cantidad de jugadas máxima. 
         //* Con la palabra del usuario, pone la longitud de la palabra, como la longitud del vector. 
         //* Después ingresa la palabra en el vector, letra por letra, quedando cada letra de la palabra 
@@ -31,41 +31,41 @@ public class AhorcadoService {
         System.out.println("Ingrese Cantidad de jugadas Posibles:");
         int cantJugadas = leer.nextInt();
 
-        String[] vPalabra = new String[longitud(palabra)];
+        String[] vPalabra = new String[longitud(palabra)]; // Inicializo Vector Paralabra con la longitud
 
-        for (int i = 0; i < vPalabra.length; i++) {
+        for (int i = 0; i < vPalabra.length; i++) {        // Lleno el Vector con la palabra
             vPalabra[i] = palabra.substring(i, i + 1);
         }
 
         return new Ahorcado(vPalabra, cantJugadas, longitud(palabra));
     }
 
-    public int longitud(String palabra) {
+    public static int longitud(String palabra) {
         //Método longitud(): muestra la longitud de la palabra que se debe encontrar. 
         //Nota: buscar como se usa el vector.length.
         //System.out.println("La longitud de la palabra es de : " + palabra.length() + " caracteres.");
         return palabra.length();
     }
 
-    public int checkVector(char letra, Ahorcado ah) {
+    public static int checkVector(char letra, Ahorcado ah) {
         int cont = 0;
         String vPalabra[] = ah.getPalabra();
         String vPalabraShow[] = ah.getPalabraShow();
 
-        for (int i = 0; i < vPalabra.length; i++) {
+        for (int i = 0; i < vPalabra.length; i++) {    // Recorro el vector Palabra para ver si esta mas de una vez la misma letra, voy llenando el de resultado
             if (vPalabra[i].equalsIgnoreCase(String.valueOf(letra))) {
                 vPalabraShow[i] = vPalabra[i];
-                cont++;
+                cont++; // Sumo si existe la letra, que puede estar mas de una vez
             }
             //System.out.print("[" + vPalabra[i] + "]");
             System.out.print("[" + vPalabraShow[i] + "]");
         }
         System.out.println("");
-        ah.setPalabraShow(vPalabraShow);
+        ah.setPalabraShow(vPalabraShow); // Actualizo el vector resultado
         return cont;
     }
 
-    public boolean buscarLetra(char letra, Ahorcado ah) {
+    public static boolean buscarLetra(char letra, Ahorcado ah) {
         //Método buscar(letra):  este método recibe una letra dada por el usuario y busca si la 
         //letra ingresada es parte de la palabra o no. También informará si la letra estaba o no.
         String vPalabra[] = ah.getPalabra();
@@ -84,7 +84,7 @@ public class AhorcadoService {
         return flag;
     }
 
-    public boolean encontradas(char letra, Ahorcado ah) {
+    public static boolean encontradas(char letra, Ahorcado ah) {
         /*Método encontradas(letra): que reciba una letra ingresada por el usuario y
         * muestre cuantas letras han sido encontradas y cuántas le faltan. Este método
         * además deberá devolver true si la letra estaba y false si la letra no estaba,
@@ -104,13 +104,13 @@ public class AhorcadoService {
         return flag;
     }
 
-    public void intentos(Ahorcado ah) {
+    public static void intentos(Ahorcado ah) {
         //Método intentos(): para mostrar cuántas oportunidades le
         // queda al jugador. 
         System.out.println("Número de oportunidades restantes: " + ah.getCantMaxJuegos());
     }
 
-    public void juego() {
+    public static void juego() {
         // * //Método juego(): el método juego se encargará de llamar todos los métodos
         // * previamente mencionados e informará cuando el usuario descubra toda la
         // * palabra o se quede sin intentos. Este método se llamará en el main.

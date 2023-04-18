@@ -8,6 +8,7 @@ import guia9.entidades.Persona;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -16,7 +17,7 @@ import java.util.Scanner;
  */
 public class PersonaService {
 
-    public Persona crearPersona() {
+    public static Persona crearPersona() {
         //Método crearPersona que pida al usuario Nombre y fecha de nacimiento de la persona a crear. Retornar el objeto Persona creado.
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingrese Nombre Persona:");
@@ -32,7 +33,7 @@ public class PersonaService {
         return new Persona(Nombre, fechaNac);
     }
 
-    public int calcularEdad(Date fechaNac) {
+    public static int calcularEdad(Date fechaNac) {
         // * Método calcularEdad que calcule la edad del usuario utilizando el atributo de
         // * fecha de nacimiento y la fecha actual.
         Date fechaNow = new Date();
@@ -42,14 +43,22 @@ public class PersonaService {
         return dif;
     }
 
-    public boolean menorQue(Persona p, int edad) {
+    public static void calcularEdadFull(Persona p) {
+        Date fechaActual = new Date();
+        long edad = Math.abs(fechaActual.getTime() - p.getFechNac().getTime());
+        long diferencia = TimeUnit.DAYS.convert(edad, TimeUnit.MILLISECONDS);
+        diferencia /= 365;
+        System.out.println("La edad del usuario es de: " + diferencia);
+    }
+
+    public static boolean menorQue(Persona p, int edad) {
         // * Método menorQue recibe como parámetro una Persona y una edad. Retorna true si
         // * la persona es menor que la edad consultada o false en caso contrario. 
 
         return p.getFechNac().getYear() < edad;
     }
 
-    public void mostrarPersona(Persona p) {
+    public static void mostrarPersona(Persona p) {
         //Método mostrarPersona que muestra la información de la persona deseada.
         System.out.println("Nombre : " + p.getNombre());
         System.out.println("Fecha Nacimiento: " + p.getFechNac());
@@ -64,7 +73,8 @@ public class PersonaService {
         System.out.println("Fecha formateada: " + fechaFormateada);
         //Equipo 189 - Nacho
 
-        System.out.println(p.getFechNac().getDate()+ "/" + (p.getFechNac().getMonth() + 1) + "/" + p.getFechNac().getYear());
+        //Formateada FMU
+        System.out.println(p.getFechNac().getDate() + "/" + (p.getFechNac().getMonth() + 1) + "/" + p.getFechNac().getYear());
 
         if (menorQue(p, 18)) {
             System.out.println("Es Menor de Edad.");

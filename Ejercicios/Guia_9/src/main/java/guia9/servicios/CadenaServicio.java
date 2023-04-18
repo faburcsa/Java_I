@@ -17,13 +17,13 @@ import java.util.Scanner;
  */
 public class CadenaServicio {
 
-    public Cadena crearCadena() {
+    public static Cadena crearCadena() {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingrese Frase:");
         return new Cadena(leer.next());
     }
 
-    public int mostrarVocales(Cadena c1) {
+    public static int mostrarVocales(Cadena c1) {
         /*
         * Método mostrarVocales(), deberá contabilizar la cantidad de vocales que tiene
         * la frase ingresada.
@@ -46,7 +46,7 @@ public class CadenaServicio {
         return cont;
     }
 
-    public void invertirFrase(Cadena c1) {
+    public static void invertirFrase(Cadena c1) {
         /*Método invertirFrase(), deberá invertir la frase
         * ingresada y mostrarla por pantalla. Por ejemplo: Entrada: "casa blanca",
         * Salida: "acnalb asac". 
@@ -59,7 +59,7 @@ public class CadenaServicio {
         System.out.println("");
     }
 
-    public void vecesRepetido(String letra, Cadena c1) {
+    public static void vecesRepetido(String letra, Cadena c1) {
         /*
         * Método vecesRepetido(String letra), recibirá un carácter ingresado por el
         * usuario y contabilizar cuántas veces se repite el carácter en la frase, por
@@ -75,7 +75,7 @@ public class CadenaServicio {
         System.out.println("El caracter '" + letra + "' se repite " + contador + " veces");
     }
 
-    public boolean compararLongitud(String frase, Cadena c1) {
+    public static boolean compararLongitud(String frase, Cadena c1) {
         /*
         Método compararLongitud(String frase), deberá comparar la longitud de
         * la frase que compone la clase con otra nueva frase ingresada por el usuario.
@@ -88,7 +88,7 @@ public class CadenaServicio {
         return resultado;
     }
 
-    public void unirFrases(String frase, Cadena c1) {
+    public static void unirFrases(String frase, Cadena c1) {
         /*
         Método unirFrases(String frase), deberá unir la frase contenida en la clase
         * Cadena con una nueva frase ingresada por el usuario y mostrar la frase
@@ -98,7 +98,7 @@ public class CadenaServicio {
         System.out.println(c1.getFrase().concat(" "+frase));
     }
 
-    public void reemplazar(String letra, Cadena c1) {
+    public static void reemplazar(String letra, Cadena c1) {
         /*
         *  Método reemplazar(String letra), deberá reemplazar todas las
         * letras “a” que se encuentren en la frase, por algún otro carácter
@@ -117,7 +117,7 @@ public class CadenaServicio {
 
     }
 
-    public boolean contiene(String letra, Cadena c1) {
+    public static boolean contiene(String letra, Cadena c1) {
         /*
         Método
         * contiene(String letra), deberá comprobar si la frase contiene una letra que

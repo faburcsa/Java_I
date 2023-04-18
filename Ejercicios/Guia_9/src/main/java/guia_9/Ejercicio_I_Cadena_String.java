@@ -18,33 +18,33 @@ public class Ejercicio_I_Cadena_String {
 
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        CadenaServicio cs=new CadenaServicio();
+        //CadenaServicio cs=new CadenaServicio();
         
 
-        Cadena c1=cs.crearCadena();
+        Cadena c1=CadenaServicio.crearCadena();
         
         System.out.println(c1);
         
-        System.out.println("Cantidad de Vocales " + cs.mostrarVocales(c1));
+        System.out.println("Cantidad de Vocales " + CadenaServicio.mostrarVocales(c1));
         
-        cs.invertirFrase(c1);
+        CadenaServicio.invertirFrase(c1);
         
-        cs.vecesRepetido("a", c1);
+        CadenaServicio.vecesRepetido("a", c1);
         
         System.out.println("Ingrese Otra Frase:");
         String frase2=leer.next();
         
-        if (cs.compararLongitud(frase2, c1)) {
+        if (CadenaServicio.compararLongitud(frase2, c1)) {
             System.out.println("Poseen Misma Longitud");
         }
         
-        cs.unirFrases(frase2, c1);
+        CadenaServicio.unirFrases(frase2, c1);
         
-        cs.reemplazar("$", c1);
+        CadenaServicio.reemplazar("$", c1);
         
         System.out.println("Ingrese Letra a Verificar:");
         String letra=leer.next();
-        if (cs.contiene(letra, c1)) {
+        if (CadenaServicio.contiene(letra, c1)) {
             System.out.println("La Frase posee la letra "+letra);
         }
     }

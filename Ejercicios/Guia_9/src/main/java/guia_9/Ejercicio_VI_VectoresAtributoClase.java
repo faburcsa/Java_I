@@ -18,14 +18,14 @@ public class Ejercicio_VI_VectoresAtributoClase {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        CursoService cs = new CursoService();
+        //CursoService cs = new CursoService();
         Curso c = new Curso();
         
-        cs.crearCurso(c);
+        CursoService.crearCurso(c);
         
         System.out.println(c);
         
-        cs.calcularGananciaSemanal(c);
+        CursoService.calcularGananciaSemanal(c);
     }
     
 }

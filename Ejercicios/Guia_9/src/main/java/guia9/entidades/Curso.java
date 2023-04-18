@@ -42,8 +42,6 @@ public class Curso {
         this.Alumnos = Alumnos;
     }
 
-
-
     public String getNombreCurso() {
         return nombreCurso;
     }

@@ -18,10 +18,11 @@ public class Ejercicio_V_Persona_Date {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        PersonaService ps = new PersonaService();
-        Persona p = ps.crearPersona();
+        //PersonaService ps = new PersonaService();
+        Persona p = PersonaService.crearPersona();
         
-        ps.mostrarPersona(p);
+        PersonaService.mostrarPersona(p);
+        PersonaService.calcularEdadFull(p);
     }
     
 }

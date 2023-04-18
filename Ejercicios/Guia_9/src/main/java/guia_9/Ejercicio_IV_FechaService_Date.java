@@ -29,17 +29,17 @@ Si necesiten acá tienen más información en clase Date: Documentacion Oracle
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        FechaService fs = new FechaService();
+        //FechaService fs = new FechaService();
         
-        Date fechanac=fs.fechaNacimiento();
+        Date fechanac=FechaService.fechaNacimiento();
         
         System.out.println(fechanac);
         //System.out.println(fechanac.toString());
         
-        Date fechahoy=fs.fechaActual();
+        Date fechahoy=FechaService.fechaActual();
         System.out.println(fechahoy);
         
-        fs.diferencia(fechahoy, fechanac);
+        FechaService.diferencia(fechahoy, fechanac);
     }
     
 }

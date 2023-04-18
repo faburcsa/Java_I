@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class FechaService {
 
-    public Date fechaNacimiento() {
+    public static Date fechaNacimiento() {
         //Método fechaNacimiento que pregunte al usuario día, mes y
         // año de su nacimiento. Luego los pase por parámetro a un nuevo objeto Date.
         // El método debe retornar el objeto Date. Ejemplo fecha:
@@ -36,7 +36,7 @@ public class FechaService {
 
     }
 
-    public Date fechaActual() {
+    public static Date fechaActual() {
         //   Método fechaActual que cree un objeto
         // * fecha con el día actual. Para esto usaremos el constructor vacío de la clase
         // * Date. Ejemplo: Date fechaActual = new Date(); El método debe retornar el
@@ -45,7 +45,7 @@ public class FechaService {
         return new Date();
     }
 
-    public int diferencia(Date fecha1, Date fecha2) {
+    public static int diferencia(Date fecha1, Date fecha2) {
         //  Método diferencia que reciba las dos fechas por parámetro
         // * y retorna la diferencia de años entre una y otra (edad del usuario). 
         int dif = fecha1.getYear()-fecha2.getYear();

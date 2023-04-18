@@ -16,25 +16,25 @@ import java.util.Arrays;
  */
 public class ArregloService {
 
-    public void iniciaizarA(float[] arreglo) {
+    public static void iniciaizarA(float[] arreglo) {
         //Método inicializarA recibe un arreglo por parámetro y lo inicializa con números aleatorios.
         for (int i = 0; i < arreglo.length; i++) {
             arreglo[i] = (float) Math.random() * 100;
         }
     }
 
-    public void mostrar(float[] arreglo) {
+    public static void mostrar(float[] arreglo) {
         //Método mostrar recibe un arreglo por parámetro y lo muestra por pantalla.
         System.out.println(Arrays.toString(arreglo));
     }
 
-    public void ordenar(float[] arreglo) {
+    public static void ordenar(float[] arreglo) {
         //Método ordenar recibe un arreglo por parámetro y lo ordena de mayor a menor.
         Arrays.sort(arreglo);
         System.out.println(Arrays.toString(arreglo));
     }
 
-    public void inicializarB(float[] arregloA, float[] arregloB) {
+    public static void inicializarB(float[] arregloA, float[] arregloB) {
         // Método inicializarB copia los primeros 10 números del arreglo A en el arreglo B.
         // Luego llenar las últimas 10 posiciones del arreglo B con 0.5.
 

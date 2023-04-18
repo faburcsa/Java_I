@@ -15,10 +15,10 @@ import java.util.Scanner;
  */
 public class CursoService {
 
-    ArrayList<Alumno> alumnosArray = new ArrayList();
-    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    public static ArrayList<Alumno> alumnosArray = new ArrayList();
+    public static Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-    private void cargarAlumnos(Curso c) {
+    private static void cargarAlumnos(Curso c) {
         /*  * Método cargarAlumnos(): este método le permitirá al usuario ingresar los alumnos 
             * que asisten a las clases. Nosotros nos encargaremos de almacenar esta información 
             * en un arreglo e iterar con un bucle, solicitando en cada repetición que se ingrese el nombre de cada alumno.*/
@@ -35,7 +35,7 @@ public class CursoService {
         c.setAlumnos(alumnosArray);
     }
 
-    public void crearCurso(Curso c) {
+    public static void crearCurso(Curso c) {
         /* Método crearCurso(): el método crear curso, le pide los valores de los
         * atributos al usuario y después se le asignan a sus respectivos atributos para
         * llenar el objeto Curso. En este método invocamos al método cargarAlumnos()
@@ -64,7 +64,7 @@ public class CursoService {
         cargarAlumnos(c);
     }
 
-    public void calcularGananciaSemanal(Curso c) {
+    public static void calcularGananciaSemanal(Curso c) {
         /* Método calcularGananciaSemanal(): este método se encarga de calcular la
      * ganancia en una semana por curso. Para ello, se deben multiplicar la cantidad
      * de horas por día, el precio por hora, la cantidad de alumnos y la cantidad de

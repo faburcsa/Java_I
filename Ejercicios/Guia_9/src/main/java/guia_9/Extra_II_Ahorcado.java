@@ -60,8 +60,8 @@ public class Extra_II_Ahorcado {
 //Mensaje: La letra no pertenece a la palabra
 //Mensaje: Lo sentimos, no hay más oportunidades
 
-        AhorcadoService ahs = new AhorcadoService();
-        ahs.juego();
+        //AhorcadoService ahs = new AhorcadoService();
+        AhorcadoService.juego();
 
     }
 
