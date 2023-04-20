@@ -23,6 +23,7 @@ public class Ejercicio_V_Persona_Date {
         
         PersonaService.mostrarPersona(p);
         PersonaService.calcularEdadFull(p);
+        
     }
     
 }

@@ -26,6 +26,7 @@ public class Ejercicio_II_ParDeNumeros_Math {
         System.out.println("La Potencia es " + pns.calcularPotencia(pn));
         System.out.println("La Raiz es " + pns.calculaRaiz(pn));
         System.out.println("El Numero Mayor es " + pns.devolverMayor(pn));
+        
     }
 
 }
