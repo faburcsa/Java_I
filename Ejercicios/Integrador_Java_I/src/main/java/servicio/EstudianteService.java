@@ -5,6 +5,7 @@
 package servicio;
 
 import entidad.Estudiante;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -42,13 +43,19 @@ public class EstudianteService {
         return sumar / 8;
     }
     
-    public static void mostrarMayorPromedio(Estudiante e[]) {
+    public static ArrayList mostrarMayorPromedio(Estudiante e[]) {
         double promedioTotal = promedio(e);
+        //Estudiante eMayor[]=new Estudiante[e.length];
+        ArrayList<Estudiante> EstudianteList = new ArrayList();
         
         for (Estudiante eTmp : e) {
             if (eTmp.getNota() > promedioTotal) {
-                System.out.println(eTmp.getNombre());
+                //System.out.println(eTmp.getNombre());
+                EstudianteList.add(eTmp);
             }
         }
+        
+        System.out.println(EstudianteList.toString());
+        return EstudianteList;
     }
 }

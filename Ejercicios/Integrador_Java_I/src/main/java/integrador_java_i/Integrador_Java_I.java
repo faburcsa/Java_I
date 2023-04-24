@@ -39,18 +39,18 @@ public class Integrador_Java_I {
     public static void main(String[] args) {
         Estudiante Estudiantes[]=new Estudiante[8];
         
-//        for (int i = 0; i < 8; i++) {
-//            Estudiantes[i]=EstudianteService.crearEstudiante();
-//        }
-//        
-//        System.out.println("El promedio de las notas es:");
-//        System.out.println(EstudianteService.promedio(Estudiantes));
-//        
-//        System.out.println("Estudiantes con Notas mayor al Promedio:");
-//        EstudianteService.mostrarMayorPromedio(Estudiantes);
-        
-        for (int i = 2; i <= 128; i*=2) {
-            System.out.println(i);
+        for (int i = 0; i < 8; i++) {
+            Estudiantes[i]=EstudianteService.crearEstudiante();
         }
+        
+        System.out.println("El promedio de las notas es:");
+        System.out.println(EstudianteService.promedio(Estudiantes));
+        
+        System.out.println("Estudiantes con Notas mayor al Promedio:");
+        EstudianteService.mostrarMayorPromedio(Estudiantes);
+        
+//        for (int i = 2; i <= 128; i*=2) {
+//            System.out.println(i);
+//        }
     }
 }
