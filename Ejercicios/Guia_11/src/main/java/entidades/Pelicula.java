@@ -10,11 +10,12 @@ import java.time.format.DateTimeFormatter;
 /**
  *
  * @author Fabian M. Urchueguia
- * 
- * Para esto,
-tendremos una clase Pelicula con el título, director y duración de la película (en horas)
+ *
+ * Para esto, tendremos una clase Pelicula con el título, director y duración de
+ * la película (en horas)
  */
 public class Pelicula {
+
     private String titulo;
     private String director;
     private LocalTime horas;
@@ -52,13 +53,9 @@ public class Pelicula {
         this.horas = horas;
     }
 
-    
     @Override
     public String toString() {
         return "Pelicula{" + "titulo=" + titulo + ", director=" + director + ", horas=" + horas.format(DateTimeFormatter.ofPattern("HH:mm:ss")) + '}';
     }
-    
-    
-    
-}
 
+}
