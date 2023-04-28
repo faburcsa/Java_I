@@ -74,7 +74,9 @@ public class ServicioAlumno {
 
         for (Alumno aList : aSearch) {
             if (aList.getNombre().equals(nombre)) {
-                cant=aList.getNotas().size();
+                
+                cant=aList.getNotas().size(); // Saco la cant. registros para el promedio
+                
                 for (int i = 0; i < aList.getNotas().size(); i++) {
                     suma += aList.getNotas().get(i);
                 }
