@@ -4,6 +4,7 @@
  */
 package utilidades;
 
+import entidades.Pais;
 import entidades.Pelicula;
 import java.util.Comparator;
 
@@ -27,17 +28,17 @@ public class comparadores {
         }
     };
 
-    public static Comparator<Pelicula> xDuracionMenorMayor = new Comparator<Pelicula>() {
-        @Override
-        public int compare(Pelicula t, Pelicula t1) {
-            return t.getHoras().compareTo(t1.getHoras()); // Se invierte el objeto dependiendo que se busca primero
-        }
-    };
+    //Esta forma la arma NetBeasn Lambda... esta buena....
+    public static Comparator<Pelicula> xDuracionMenorMayor = (Pelicula t, Pelicula t1) -> t.getHoras().compareTo(t1.getHoras()) // Se invierte el objeto dependiendo que se busca primero
+            ;
 
-    public static Comparator<Pelicula> xDuracionMayorMenor = new Comparator<Pelicula>() {
+    public static Comparator<Pelicula> xDuracionMayorMenor = (Pelicula t, Pelicula t1) -> t1.getHoras().compareTo(t.getHoras()) // Se invierte el objeto dependiendo que se busca primero
+            ;
+
+    public static Comparator<Pais> xNombreComparator = new Comparator<Pais>() {
         @Override
-        public int compare(Pelicula t, Pelicula t1) {
-            return t1.getHoras().compareTo(t.getHoras()); // Se invierte el objeto dependiendo que se busca primero
+        public int compare(Pais t, Pais t1) {
+            return t.getNombre().compareToIgnoreCase(t1.getNombre());
         }
     };
 }
