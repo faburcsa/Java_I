@@ -70,16 +70,18 @@ public class ServicioAlumno {
         System.out.println("Ingrese Nombre Alumno: ");
         String nombre = leer.next();
         float suma = 0;
+        int cant=0;
 
         for (Alumno aList : aSearch) {
             if (aList.getNombre().equals(nombre)) {
+                cant=aList.getNotas().size();
                 for (int i = 0; i < aList.getNotas().size(); i++) {
                     suma += aList.getNotas().get(i);
                 }
             }
         }
 
-        float prom = suma / 3;
+        float prom = suma / cant;
         return prom;
     }
 }
