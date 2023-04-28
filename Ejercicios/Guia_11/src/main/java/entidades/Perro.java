@@ -4,6 +4,8 @@
  */
 package entidades;
 
+import java.util.Objects;
+
 /**
  *
  * @author Fabian M. Urchueguia
@@ -41,6 +43,31 @@ public class Perro {
         return "Perro{" + "raza=" + raza + ", nombre=" + nombre + '}';
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Perro other = (Perro) obj;
+        if (!Objects.equals(this.raza, other.raza)) {
+            return false;
+        }
+        return Objects.equals(this.nombre, other.nombre);
+    }
+
+    
 
     
     
