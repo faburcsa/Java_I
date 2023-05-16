@@ -14,11 +14,14 @@ public class Perro {
     private String raza;
     private Integer edad;
     private Float tamanio;
+    private boolean isAdoptado;
 
     public Perro() {
+        this.isAdoptado = false;
     }
 
     public Perro(String nombre, String raza, Integer edad, Float tamanio) {
+        this.isAdoptado = false;
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
@@ -32,6 +35,15 @@ public class Perro {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public boolean isIsAdoptado() {
+        return isAdoptado;
+    }
+
+    public void setIsAdoptado(boolean isAdoptado) {
+        this.isAdoptado = isAdoptado;
+    }
+    
 
     public String getRaza() {
         return raza;

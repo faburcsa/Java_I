@@ -4,6 +4,9 @@
  */
 package entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Fabian M. Urchueguia
@@ -15,7 +18,7 @@ public class Persona {
     private String apellido;
     private Integer edad;
     private Integer dni;
-    private Perro perro;
+    private ArrayList<Perro> perros=new ArrayList();
 
     public Persona(String nombre, String apellido, Integer edad, Integer dni) {
         this.nombre = nombre;
@@ -56,18 +59,20 @@ public class Persona {
         this.dni = dni;
     }
 
-    public Perro getPerro() {
-        return perro;
+    public ArrayList<Perro> getPerros() {
+        return perros;
     }
 
-    public void setPerro(Perro perro) {
-        this.perro = perro;
+    public void setPerros(ArrayList<Perro> perros) {
+        this.perros = perros;
     }
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", dni=" + dni + ",\n perro=" + perro + '}';
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", dni=" + dni + "\n  perros=" + perros + '}';
     }
+
+   
     
     
 }
