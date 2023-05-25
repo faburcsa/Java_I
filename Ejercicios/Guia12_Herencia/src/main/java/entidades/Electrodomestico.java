@@ -13,18 +13,13 @@ import java.util.Scanner;
  *
  * A continuación, se debe crear una subclase llamada Lavadora, con el atributo
  * carga, además de los atributos heredados. Los constructores que se
- * implementarán serán: 
- * • Un constructor vacío. 
- * • Un constructor con la carga y
+ * implementarán serán: • Un constructor vacío. • Un constructor con la carga y
  * el resto de los atributos heredados. Recuerda que debes llamar al constructor
- * de la clase padre. Los métodos que se implementara serán: 
- * • Método get y set
- * del atributo carga. 
- * • Método crearLavadora (): este método llama a
+ * de la clase padre. Los métodos que se implementara serán: • Método get y set
+ * del atributo carga. • Método crearLavadora (): este método llama a
  * crearElectrodomestico() de la clase padre, lo utilizamos para llenar los
  * atributos heredados del padre y después llenamos el atributo propio de la
- * lavadora. 
- * • Método precioFinal(): este método será heredado y se le sumará la
+ * lavadora. • Método precioFinal(): este método será heredado y se le sumará la
  * siguiente funcionalidad. Si tiene una carga mayor de 30 kg, aumentará el
  * precio en $500, si la carga es menor o igual, no se incrementará el precio.
  * Este método debe llamar al método padre y añadir el código necesario.
@@ -92,7 +87,7 @@ public class Electrodomestico {
             System.out.println(letra + " pertenece al enum Consumo.");
             return valor;
         } catch (IllegalArgumentException e) {
-            System.out.println(letra + " no pertenece al enum Consumo.");
+            System.out.println(letra + " no pertenece al enum Consumo. Valor por defecto = F");
             return Consumo.valueOf(String.valueOf("F"));
         }
     }
@@ -129,18 +124,18 @@ public class Electrodomestico {
      *
      */
     public void crearElectrodomestico() {
-        System.out.println("Ingrese Precio $");
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        this.precio = leer.nextDouble();
 
-        System.out.println("Ingrese Peso");
+//        System.out.println("Ingrese Precio $");
+//        this.precio = leer.nextDouble();
+        System.out.println("Ingrese Peso en Kg.");
         this.peso = leer.nextFloat();
 
         System.out.println("Ingrese Color");
         this.color = comprobarColor(leer.next());
 
-        System.out.println("Ingrese Consumo");
-        this.consumo = comprobarConsumoEnergetico(leer.next().charAt(0));
+        System.out.println("Ingrese Consumo (desde la A a la F)");
+        this.consumo = comprobarConsumoEnergetico(leer.next().toUpperCase().charAt(0));
     }
 
     /**
@@ -149,6 +144,7 @@ public class Electrodomestico {
      */
     public void precioFinal() {
         Double extPriceConsumo = 0d;
+        Double extPricePeso = 0d;
 
         switch (this.consumo.name()) {
             case "A":
@@ -170,18 +166,20 @@ public class Electrodomestico {
                 extPriceConsumo = 100d;
                 break;
         }
+        System.out.println("Precio extra por consumo $" + extPriceConsumo);
 
         if (this.peso >= 1 && this.peso <= 19) {
-            extPriceConsumo += 100d;
+            extPricePeso += 100d;
         } else if ((this.peso >= 20 && this.peso <= 49)) {
-            extPriceConsumo += 500d;
+            extPricePeso += 500d;
         } else if ((this.peso >= 50 && this.peso <= 79)) {
-            extPriceConsumo += 800d;
+            extPricePeso += 800d;
         } else if ((this.peso >= 80)) {
-            extPriceConsumo += 1000d;
+            extPricePeso += 1000d;
         }
 
-        this.precio += extPriceConsumo;
+        System.out.println("Precio extra por peso $" + extPricePeso);
+        this.precio += extPriceConsumo + extPricePeso;
     }
 
     //• Métodos getters y setters de todos los atributos.
@@ -219,7 +217,7 @@ public class Electrodomestico {
 
     @Override
     public String toString() {
-        return "Electrodomestico{" + "precio=" + precio + ", color=" + color + ", consumo=" + consumo + ", peso=" + peso + '}';
+        return "{" + "precio=" + precio + ", color=" + color + ", consumo=" + consumo + ", peso=" + peso + '}';
     }
 
 }

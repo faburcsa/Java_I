@@ -53,6 +53,7 @@ public class Lavadora extends Electrodomestico {
      * padre y después llenamos el atributo propio de la lavadora.
      */
     public void crearLavadora() {
+        System.out.println("Carga de Lavadora");
         super.crearElectrodomestico();
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingrese Carga Lavadora:");
@@ -62,7 +63,7 @@ public class Lavadora extends Electrodomestico {
 
     @Override
     public String toString() {
-        return super.toString() + "\n Lavadora{" + "carga=" + carga + '}';
+        return "\n Lavadora{" + "carga=" + carga + '}' + super.toString();
     }
 
     /**
@@ -77,8 +78,10 @@ public class Lavadora extends Electrodomestico {
     public void precioFinal() {
         super.precioFinal();
         if (this.carga > 30) {
-            this.precio+=500d;
+            this.precio += 500d;
+            System.out.println("Precio extra por carga superior a 30Kg $500");
         }
+        System.out.println("Precio final $" + this.precio);
     }
 
 }
