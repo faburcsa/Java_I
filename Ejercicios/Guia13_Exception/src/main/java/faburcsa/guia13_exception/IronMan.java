@@ -4,6 +4,11 @@
  */
 package faburcsa.guia13_exception;
 
+import entidades.Armadura;
+import entidades.DamageException;
+import entidades.EnergiaException;
+import servicios.Jarvis;
+
 /**
  *
  * @author Fabian M. Urchueguia
@@ -12,9 +17,38 @@ public class IronMan {
 
     /**
      * @param args the command line arguments
+     * @throws entidades.EnergiaException
+     * @throws entidades.DamageException
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws EnergiaException, DamageException {
+        //Crear Armadura
+        Armadura ironMan = Jarvis.crearArmadura();
+        
+        Jarvis.estadoBateria(ironMan);
+
+        System.out.println(ironMan.toString());
+
+        System.out.println("Caminar 20 Minutos");
+        ironMan.caminar(20);
+//        System.out.println(ironMan.toString());
+//
+        System.out.println("Correr 2000 Minutos");
+        ironMan.correr(2000);
+//        System.out.println(ironMan.toString());
+//
+        Jarvis.estadoBateria(ironMan);
+        Jarvis.infoReactor(ironMan);
+//        System.out.println("Volar 2 Minutos");
+//        ironMan.volar(2);
+//        System.out.println(ironMan.toString());
+//
+//        System.out.println("Disparar 2 minutos");
+//        ironMan.guanteDisparo(2);
+//        System.out.println(ironMan.toString());
+//
+//        System.out.println("Mensaje Consola");
+//        ironMan.escribirConsola();
+//        System.out.println(ironMan.toString());
     }
-    
+
 }
