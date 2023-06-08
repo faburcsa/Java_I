@@ -88,30 +88,31 @@ armadura deberá informar al generador se ha consumido esa cantidad de energía.
     //Al caminar la armadura hará un uso básico de las botas y se consumirá la energía
     //establecida como consumo en la bota por el tiempo en el que se camine.
     public void caminar(int tiempoMinutos) throws DamageException {
-        if (this.botaL.isDamage() || this.botaR.isDamage()) {
-            throw new DamageException("Botas Dañadas");
-        }
         try {
+            if (this.botaL.isDamage() || this.botaR.isDamage()) {
+                throw new DamageException("Botas Dañadas");
+            }
             this.botaL.setEnergia(this.botaL.getEnergia() - botaL.usarDispositivo(1, tiempoMinutos));
             this.botaR.setEnergia(this.botaR.getEnergia() - botaR.usarDispositivo(1, tiempoMinutos));
-        } catch (EnergiaException e) {
+        } catch (EnergiaException | DamageException e) {
             System.out.println("Caminar:");
             System.out.println(e.getMessage());
         } finally {
             generadorInfo();
         }
     }
-
     //Al correr la armadura hará un uso normal de las botas y se consumirá el doble de la
     //energía establecida como consumo en la bota por el tiempo en el que se corra.
-    public void correr(int tiempoMinutos)  throws DamageException {
-        if (this.botaL.isDamage() || this.botaR.isDamage()) {
-            throw new DamageException("Botas Dañadas");
-        }
+
+    public void correr(int tiempoMinutos) throws DamageException {
+
         try {
+            if (this.botaL.isDamage() || this.botaR.isDamage()) {
+                throw new DamageException("Botas Dañadas");
+            }
             this.botaL.setEnergia(this.botaL.getEnergia() - botaL.usarDispositivo(2, tiempoMinutos));
             this.botaR.setEnergia(this.botaR.getEnergia() - botaR.usarDispositivo(2, tiempoMinutos));
-        } catch (EnergiaException e) {
+        } catch (EnergiaException | DamageException e) {
             System.out.println("Correr:");
             System.out.println(e.getMessage());
         } finally {
@@ -121,14 +122,15 @@ armadura deberá informar al generador se ha consumido esa cantidad de energía.
 
     //Al propulsarse la armadura hará un uso intensivo de las botas utilizando el triple de la
     //energía por el tiempo que dure la propulsión.
-    public void propulsarse(int tiempoMinutos)  throws DamageException {
-        if (this.botaL.isDamage() || this.botaR.isDamage()) {
-            throw new DamageException("Botas Dañadas");
-        }
+    public void propulsarse(int tiempoMinutos) throws DamageException {
+
         try {
+            if (this.botaL.isDamage() || this.botaR.isDamage()) {
+                throw new DamageException("Botas Dañadas");
+            }
             this.botaL.setEnergia(this.botaL.getEnergia() - botaL.usarDispositivo(3, tiempoMinutos));
             this.botaR.setEnergia(this.botaR.getEnergia() - botaR.usarDispositivo(3, tiempoMinutos));
-        } catch (EnergiaException e) {
+        } catch (EnergiaException | DamageException e) {
             System.out.println("Propulsion:");
             System.out.println(e.getMessage());
         } finally {
@@ -138,19 +140,20 @@ armadura deberá informar al generador se ha consumido esa cantidad de energía.
 
     //Al volar la armadura hará un uso intensivo de las botas y de los guantes un uso normal
     //consumiendo el triple de la energía establecida para las botas y el doble para los guantes.
-    public void volar(int tiempoMinutos)  throws DamageException {
-        if (this.botaL.isDamage() || this.botaR.isDamage()) {
-            throw new DamageException("Botas Dañadas");
-        }
-        if (this.guanteL.isDamage() || this.guanteR.isDamage()) {
-            throw new DamageException("Guantes Dañados");
-        }
+    public void volar(int tiempoMinutos) throws DamageException {
+
         try {
+            if (this.botaL.isDamage() || this.botaR.isDamage()) {
+                throw new DamageException("Botas Dañadas");
+            }
+            if (this.guanteL.isDamage() || this.guanteR.isDamage()) {
+                throw new DamageException("Guantes Dañados");
+            }
             this.botaL.setEnergia(this.botaL.getEnergia() - botaL.usarDispositivo(3, tiempoMinutos));
             this.botaR.setEnergia(this.botaR.getEnergia() - botaR.usarDispositivo(3, tiempoMinutos));
             this.guanteL.setEnergia(this.guanteL.getEnergia() - guanteL.usarDispositivo(2, tiempoMinutos));
             this.guanteR.setEnergia(this.guanteR.getEnergia() - guanteR.usarDispositivo(2, tiempoMinutos));
-        } catch (EnergiaException e) {
+        } catch (EnergiaException | DamageException e) {
             System.out.println("Volar:");
             System.out.println(e.getMessage());
         } finally {
@@ -159,14 +162,15 @@ armadura deberá informar al generador se ha consumido esa cantidad de energía.
     }
 
     //Al utilizar los guantes como armas el consumo se triplica durante el tiempo del disparo.
-    public void guanteDisparo(int tiempoMinutos)  throws DamageException {
-        if (this.guanteL.isDamage() || this.guanteR.isDamage()) {
-            throw new DamageException("Guantes Dañados");
-        }
+    public void guanteDisparo(int tiempoMinutos) throws DamageException {
+
         try {
+            if (this.guanteL.isDamage() || this.guanteR.isDamage()) {
+                throw new DamageException("Guantes Dañados");
+            }
             this.guanteL.setEnergia(this.guanteL.getEnergia() - guanteL.usarDispositivo(3, tiempoMinutos));
             this.guanteR.setEnergia(this.guanteR.getEnergia() - guanteR.usarDispositivo(3, tiempoMinutos));
-        } catch (EnergiaException e) {
+        } catch (EnergiaException | DamageException e) {
             System.out.println("Disparo:");
             System.out.println(e.getMessage());
         } finally {
@@ -309,6 +313,5 @@ armadura deberá informar al generador se ha consumido esa cantidad de energía.
     public void setSintetizador(DispositivoArmadura sintetizador) {
         this.sintetizador = sintetizador;
     }
-    
-    
+
 }

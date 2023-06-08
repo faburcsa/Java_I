@@ -58,12 +58,5 @@ transformaciones.
     }
     
     
-    /*
-    Sufriendo Daños
-A veces los dispositivos de la armadura sufren daños para esto cada dispositivo contiene un
-atributo público que dice si el dispositivo se encuentra dañado o no. Al utilizar un dispositivo
-existe un 30% de posibilidades de que se dañe.
-La armadura solo podrá utilizar dispositivos que no se encuentren dañados.
-Modifique las clases que sean necesarias para llevar adelante este comportamiento.
-    */
+
 }
