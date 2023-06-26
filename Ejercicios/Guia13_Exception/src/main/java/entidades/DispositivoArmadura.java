@@ -55,6 +55,7 @@ public class DispositivoArmadura {
      */
     public int usarDispositivo(int nivelIntensidad, int tiempoUsoMinutos) throws EnergiaException {
         sufriendoDanios();
+        reparaDanios();
         int energiaConsumida;
         if (this.energia < (nivelIntensidad * tiempoUsoMinutos)) {
             throw new EnergiaException("No hay Energia");
@@ -78,9 +79,29 @@ public class DispositivoArmadura {
         // Cambiar la bandera si el número aleatorio es menor o igual al 30
         if (randomNumber <= 30) {
             this.damage = true;
+            System.out.println("ATENCION - Se daño el dispositivo!!!");
         }
     }
-
+    
+    /*
+    Reparando Daños
+Hay veces que se puede reparar los daños de un dispositivo, en general es el 40% de las veces
+que se puede hacer. Utilizar la clase Random para modelar este comportamiento. En caso de estar
+dentro de la probabilidad (es decir probabilidad menor o igual al 40%) marcar el dispositivo como
+sano. Si no dejarlo dañado.
+    */
+    public void reparaDanios() {
+        double randomNumber = Math.random() * 100; // Generar un número aleatorio entre 0 y 100
+        // Cambiar la bandera si el número aleatorio es menor o igual al 30
+        if (randomNumber <= 40) {
+            this.damage = false;
+            System.out.println("Dispositivo REPARADO!!!");
+        } else {
+            if (this.damage = true) {
+                System.out.println("No se pudo reparar....");
+            }
+        }
+    }
     @Override
     public String toString() {
         return "DispositivoArmadura{" + "energia=" + energia + ", consumo=" + consumo + '}';

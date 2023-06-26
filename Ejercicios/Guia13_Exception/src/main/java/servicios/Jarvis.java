@@ -7,6 +7,8 @@ package servicios;
 import entidades.Armadura;
 import entidades.DispositivoArmadura;
 import enumeraciones.Rockwell;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -43,20 +45,30 @@ mostrar el estado de la misma.
     public static void estadoBateria(Armadura ironMan) {
         System.out.println("Estado Actual Bateria Generador: " + (ironMan.getNivelEnergiaGenerador() * 100 / estadoInicialEnergiaGenerador) + "%");
     }
-    
+
     /*Mostrar Información del Reactor
 Hacer un método para que JARVIS informe el estado del reactor en otras dos unidades de
 medida. Hay veces en las que Tony tiene pretensiones extrañas. Buscar en Wikipedia la tabla de
 transformaciones.
     
     https://www.newark.com/es/calculadora-conversion-potencia
-*/
+     */
     public static void infoReactor(Armadura ironMan) {
         System.out.println("Potencia eléctrica Megavatio (MW): " + ironMan.getNivelEnergiaGenerador());
-        System.out.println("Potencia eléctrica Milivatio (mW): " + (ironMan.getNivelEnergiaGenerador() * 0.001) );
+        System.out.println("Potencia eléctrica Milivatio (mW): " + (ironMan.getNivelEnergiaGenerador() * 0.001));
         System.out.println("Potencia eléctrica Ergio por segundo (erg/s): " + (ironMan.getNivelEnergiaGenerador() * 10000));
     }
-    
-    
 
+    /*
+    Revisando Dispositivos
+Los dispositivos son revisados por JARVIS para ver si se encuentran dañados. En caso de
+encontrar un dispositivo dañado se debe intentar arreglarlo de manera insistente. Para esos
+intentos hay un 30% de posibilidades de que el dispositivo quede destruido, pero se deberá
+intentar arreglarlo hasta que lo repare, o bien hasta que quede destruido.
+     */
+    public static void revisarDispositos(Armadura ironMan) {
+        List<DispositivoArmadura> dispo = new ArrayList();
+        
+        
+    }
 }
