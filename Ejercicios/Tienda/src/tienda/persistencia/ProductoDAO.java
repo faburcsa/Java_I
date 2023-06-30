@@ -6,6 +6,7 @@ package tienda.persistencia;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Scanner;
 import tienda.entidades.Producto;
 
 /**
@@ -58,8 +59,7 @@ public class ProductoDAO extends DAO {
             throw new Exception("Error de sistema");
         }
     }
-    
-    
+
     public Collection<Producto> listarProductosBetween() throws Exception {
         try {
             String sql = "SELECT nombre,precio FROM producto where precio between 120 and 202 ";
@@ -82,8 +82,7 @@ public class ProductoDAO extends DAO {
             throw new Exception("Error de sistema");
         }
     }
-    
-    
+
     public Collection<Producto> listarPortatiles() throws Exception {
         try {
             String sql = "SELECT nombre,precio FROM producto where nombre like ('%portátil%') ";
@@ -105,8 +104,8 @@ public class ProductoDAO extends DAO {
             throw new Exception("Error de sistema");
         }
     }
-    
-      public Collection<Producto> listarBarato() throws Exception {
+
+    public Collection<Producto> listarBarato() throws Exception {
         try {
             String sql = "SELECT nombre,precio FROM producto where precio=(SELECT MIN(precio) FROM producto) ";
 
@@ -126,6 +125,64 @@ public class ProductoDAO extends DAO {
             e.printStackTrace();
             desconectarBase();
             throw new Exception("Error de sistema");
+        }
+    }
+
+    public void guardarProducto(Producto producto) throws Exception {
+        try {
+            if (producto == null) {
+                throw new Exception("Debe indicar un producto");
+            }
+            String sql = "INSERT INTO PRODUCTO(NOMBRE, PRECIO, CODIGO_FABRICANTE)" + "VALUES ('" + producto.getNombre()
+                    + "','" + producto.getPrecio() + "','" + producto.getCodigoFabricante() + "');";
+            System.out.println(sql);
+            insertarModificarEliminar(sql);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectarBase();
+        }
+    }
+
+    public void modificarProducto(Producto producto) throws Exception {
+        try {
+            if (producto == null) {
+                throw new Exception("Debe indicar el producto a modificar");
+            }
+            String sql = "UPDATE PRODUCTO SET NOMBRE = '" + producto.getNombre() + "',PRECIO ="
+                    + producto.getPrecio()
+                    + " WHERE CODIGO = " + producto.getCodigo() + ";";
+            insertarModificarEliminar(sql);
+            
+            
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectarBase();
+        }
+    }
+    
+    
+     public Producto buscarProducto(Integer id) throws Exception {
+        try {
+
+            String sql = "SELECT * FROM producto "
+                    + " WHERE codigo = '" + id + "'";
+
+            consultarBase(sql);
+
+            Producto producto = null;
+            while (resultado.next()) {
+                producto = new Producto();
+                producto.setCodigo(resultado.getInt("codigo"));
+                producto.setNombre(resultado.getString("nombre"));
+                producto.setPrecio(resultado.getDouble("precio"));
+            }
+            desconectarBase();
+            return producto;
+        } catch (Exception e) {
+            desconectarBase();
+            throw e;
         }
     }
 }

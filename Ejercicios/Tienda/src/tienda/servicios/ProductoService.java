@@ -5,6 +5,7 @@
 package tienda.servicios;
 
 import java.util.Collection;
+import java.util.Scanner;
 import tienda.entidades.Producto;
 import tienda.persistencia.ProductoDAO;
 
@@ -55,8 +56,8 @@ public class ProductoService {
             throw e;
         }
     }
-    
-        public Collection<Producto> listarBarato() throws Exception {
+
+    public Collection<Producto> listarBarato() throws Exception {
         try {
             Collection<Producto> productos = dao.listarBarato();
             return productos;
@@ -94,6 +95,7 @@ public class ProductoService {
             throw e;
         }
     }
+
     public void imprimirBarato() throws Exception {
         try {
             Collection<Producto> productos = listarBarato();
@@ -108,6 +110,7 @@ public class ProductoService {
             throw e;
         }
     }
+
     public void imprimirProductosBetween() throws Exception {
         try {
             Collection<Producto> productos = listarProductosBetween();
@@ -133,6 +136,77 @@ public class ProductoService {
                     System.out.println(u.getNombre() + " - $" + u.getPrecio());
                 }
             }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public void crearProducto() {
+        Scanner sc = new Scanner(System.in);
+        Producto producto = new Producto();
+        System.out.println("Ingrese el Nombre del producto");
+        producto.setNombre(sc.next());
+        System.out.println("Ingrese el precio del producto");
+        producto.setPrecio(sc.nextDouble());
+        System.out.println("Ingrese el codigo del Fabricante");
+        producto.setCodigoFabricante(sc.nextInt());
+        try {
+            if (producto.getNombre().trim().isEmpty()) {
+                throw new Exception("Debe ingresar un nombre");
+            }
+            if (producto.getPrecio() <= 0) {
+                throw new Exception("Debe ingresar un valor mayor o igual a '0'");
+            }
+            if (producto.getCodigoFabricante() < 1) {
+                throw new Exception("Debe ingresar un valor mayor o igual a '1'");
+            }
+            dao.guardarProducto(producto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void modificarProductos() {
+        Scanner sc = new Scanner(System.in);
+        Producto producto = new Producto();
+        System.out.println("Ingrese el Nombre del producto a Modificar");
+        producto.setNombre(sc.next());
+        System.out.println("Ingrese precio del producto");
+        producto.setPrecio(sc.nextDouble());
+        System.out.println("Ingrese el codigo del fabricante");
+        producto.setCodigoFabricante(sc.nextInt());
+        try {
+            if (producto.getNombre().trim().isEmpty()) {
+                throw new Exception("Debe ingresar un nombre");
+            }
+            if (producto.getPrecio() <= 0) {
+                throw new Exception("Debe ingresar un valor mayor o igual a '0'");
+            }
+            if (producto.getCodigoFabricante() < 1) {
+                throw new Exception("Debe ingresar un valor mayor o igual a '1'");
+            }
+            
+            //Buscamos
+            Producto productoUP = buscarProductoCodigo(producto.getCodigoFabricante());
+            
+            //Modificamos
+            productoUP.setNombre(producto.getNombre());
+            productoUP.setPrecio(producto.getPrecio());
+            dao.modificarProducto(productoUP);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    public Producto buscarProductoCodigo(Integer codigo) throws Exception {
+        try {
+            //Validamos
+            if (codigo == null) {
+                throw new Exception("Debe indicar codigo");
+            }
+            Producto producto = dao.buscarProducto(codigo);
+            return producto;
         } catch (Exception e) {
             throw e;
         }
