@@ -53,7 +53,15 @@ public abstract class DAO {
             sentencia = conexion.createStatement();
             sentencia.executeUpdate(sql);
         } catch (SQLException ex) {
+            /*
+            conexion.Rollback();
+            
+            Para activar rollback en el Motor Base de Datos ejecutar:
+            SET autocommit=1;
+            commit;
+            */
             throw ex;
+            
         } finally {
             desconectarBase();
         }

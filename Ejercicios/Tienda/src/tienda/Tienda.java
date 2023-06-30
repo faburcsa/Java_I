@@ -4,8 +4,8 @@
  */
 package tienda;
 
-import java.sql.Connection;
-import tienda.persistencia.DAO_FMU;
+import java.util.Scanner;
+import tienda.servicios.ProductoService;
 
 /**
  *
@@ -16,15 +16,101 @@ public class Tienda {
     /**
      * @param args the command line arguments
      */
+    static ProductoService productoService = new ProductoService();
+
     public static void main(String[] args) {
         // TODO code application logic here
         //DAO dao=new DAO_FMU();
-        
-        Connection conn=DAO_FMU.conexion("tienda");
-        
-        
-        DAO_FMU.desConexion(conn); //conn.close();
-        
+        boolean flagMenu = true;
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
+        while (flagMenu) {
+
+            System.out.println("MENU");
+
+            System.out.println("Ingrese Opcion");
+            System.out.println("1 - Listar Productos.");
+            System.out.println("2 - Listar Productos con Precios.");
+            System.out.println("3 - Listar Productos con Precios entre 120 y 202.");
+            System.out.println("4 - Buscar y listar todos los Portátiles de la tabla producto");
+            System.out.println("5 - Listar el nombre y el precio del producto más barato. ");
+
+            System.out.println("0 - Salir");
+            int Opcion = leer.nextInt();
+
+            switch (Opcion) {
+                case 0:
+                    flagMenu = false;
+                    break;
+                case 1:
+                    listaProductos();
+                    break;
+                case 2:
+                    listaProductosCPrecio();
+                    break;
+                case 3:
+                    listaProductosBetween();
+                    break;
+                case 4:
+                    listaPortatiles();
+                    break;
+                case 5:
+                    listaBarato();
+                    break;
+                default:
+                    System.out.println("Opcion Incorrecta.");
+            }
+        }
+
     }
-    
+
+    // Lista el nombre de todos los productos que hay en la tabla producto
+    public static void listaProductos() {
+        try {
+            productoService.imprimirProductos();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error del sistema por \n" + e.getMessage());
+        }
+    }
+
+    // Lista los nombres y los precios de todos los productos de la tabla producto.
+    public static void listaProductosCPrecio() {
+        try {
+            productoService.imprimirProductosCPrecio();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error del sistema por \n" + e.getMessage());
+        }
+    }
+
+    //Listar aquellos productos que su precio esté entre 120 y 202
+    public static void listaProductosBetween() {
+        try {
+            productoService.imprimirProductosBetween();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error del sistema por \n" + e.getMessage());
+        }
+    }
+
+    //Listar aquellos productos que su precio esté entre 120 y 202
+    public static void listaPortatiles() {
+        try {
+            productoService.imprimirPortatiles();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error del sistema por \n" + e.getMessage());
+        }
+    }
+
+    //Listar aquellos productos que su precio Barato
+    public static void listaBarato() {
+        try {
+            productoService.imprimirBarato();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error del sistema por \n" + e.getMessage());
+        }
+    }
 }
