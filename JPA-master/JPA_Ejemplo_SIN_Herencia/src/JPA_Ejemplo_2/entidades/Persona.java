@@ -5,6 +5,7 @@
 package JPA_Ejemplo_2.entidades;
 
 import JPA_Ejemplo_2.enums.Rol;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Persona {
+public class Persona implements Serializable {
 
     @Id
     @GeneratedValue(generator = "uuid")

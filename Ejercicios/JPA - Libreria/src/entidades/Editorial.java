@@ -18,6 +18,7 @@ import javax.persistence.Id;
 public class Editorial implements Serializable {
 
     public Editorial() {
+        this.alta = true;
     }
 
     public Editorial(Integer id, String nombre, boolean alta) {
@@ -79,7 +80,9 @@ public class Editorial implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Editorial[ id=" + id + " ]";
+        return "Editorial{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
     }
+
+
     
 }

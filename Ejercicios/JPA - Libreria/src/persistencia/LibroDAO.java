@@ -79,8 +79,38 @@ public class LibroDAO {
 
     public Libro buscarPorIsbn(Long isbn) throws Exception {
         conectar();
-        Libro libro = (Libro) em.createQuery("SELECT a FROM Libro a WHERE a.id LIKE :id").setParameter("id", isbn).getSingleResult();
+        Libro libro = (Libro) em.createQuery("SELECT a FROM Libro a WHERE a.isbn LIKE :isbn").setParameter("isbn", isbn.toString()).getSingleResult();
         desconectar();
         return libro;
+    }
+
+    public List buscarPorTitulo(String titulo) throws Exception {
+        conectar();
+        List<Libro> libros = em.createQuery("SELECT a FROM Libro a WHERE a.titulo LIKE CONCAT('%', :titulo, '%')")
+                .setParameter("titulo", titulo).getResultList();
+        desconectar();
+        return libros;
+    }
+
+    public List buscarLibroPorAutor(String nombre) throws Exception {
+        conectar();
+        //Opcion 1 sin JOIN
+        //        List<Persona> personas = em.createQuery("SELECT p FROM Persona p WHERE p.direccion.pais LIKE :pais AND p.direccion.provincia LIKE :provincia ")
+        //                .setParameter("pais", pais).setParameter("provincia", provincia).getResultList();
+        //Opcion 2 con JOIN
+        //List<Persona> personas = em.createQuery("SELECT p FROM Persona p JOIN p.direccion d WHERE d.pais LIKE :pais AND d.provincia LIKE :provincia ")
+        //        .setParameter("pais", pais).setParameter("provincia", provincia).getResultList();
+        List<Libro> libros = em.createQuery("SELECT l FROM Libro l JOIN l.autor a WHERE a.nombre LIKE CONCAT('%', :nombre, '%')")
+                .setParameter("nombre", nombre).getResultList();
+        desconectar();
+        return libros;
+    }
+
+        public List buscarLibroPorEditorial(String nombre) throws Exception {
+        conectar();
+        List<Libro> libros = em.createQuery("SELECT l FROM Libro l JOIN l.editorial e WHERE e.nombre LIKE CONCAT('%', :nombre, '%')")
+                .setParameter("nombre", nombre).getResultList();
+        desconectar();
+        return libros;
     }
 }

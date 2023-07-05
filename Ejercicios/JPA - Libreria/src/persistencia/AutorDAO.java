@@ -54,7 +54,12 @@ public class AutorDAO {
     public void eliminar(Autor autor) {
         conectar();
         em.getTransaction().begin();
-        em.remove(autor);
+        //ERROR
+        // Entity must be managed to call remove: Editorial{id=151, nombre=Fabricion, alta=true}, try merging the detached and try the remove again.
+        //  Editorial detachedEditorial = entityManager.find(Editorial.class, 102); // Retrieve the detached entity by ID
+        //  Editorial mergedEditorial = entityManager.merge(detachedEditorial); // Merge the detached entity
+        em.remove(em.merge(em.find(Autor.class, autor.getId()))); // Remove the merged entity
+        //em.remove(autor);
         em.getTransaction().commit();
         desconectar();
     }
@@ -77,10 +82,18 @@ public class AutorDAO {
         return autores;
     }
 
-    public Autor buscarPorID(String id) throws Exception {
+    public Autor buscarPorID(Integer id) throws Exception {
         conectar();
-        Autor autor = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.id LIKE :id").setParameter("id", id).getSingleResult();
+        Autor autor = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.id LIKE :id").setParameter("id", id.toString()).getSingleResult();
         desconectar();
         return autor;
+    }
+    
+    public List buscarPorNombre(String nombre) throws Exception {
+        conectar();
+        List<Autor> autores = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE CONCAT('%', :nombre, '%')")
+                .setParameter("nombre",nombre).getResultList();
+        desconectar();
+        return autores;
     }
 }

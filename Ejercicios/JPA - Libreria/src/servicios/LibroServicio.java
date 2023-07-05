@@ -4,6 +4,8 @@
  */
 package servicios;
 
+import entidades.Autor;
+import entidades.Editorial;
 import entidades.Libro;
 import java.util.List;
 import persistencia.LibroDAO;
@@ -29,11 +31,15 @@ public class LibroServicio {
 
     // este método invoca el método guardar de la clase DAO padre para 
     // persistir un objeto Libro
-    public Libro crearLibro(String nombre, String dni) {
+    public Libro crearLibro(String titulo, Integer ejemplares, Autor autor, Editorial editorial, Integer anio) {
         Libro libro = new Libro();
         try {
-            libro.setNombre(nombre);
-            libro.setDni(dni);
+            libro.setTitulo(titulo);
+            libro.setEjemplares(ejemplares);
+            libro.setAutor(autor);
+            libro.setEditorial(editorial);
+            libro.setAnio(anio);
+
             DAO.guardar(libro);
             return libro;
         } catch (Exception e) {
@@ -51,9 +57,9 @@ public class LibroServicio {
         }
     }
 
-    public boolean eliminarPorDni(String dni) {
+    public boolean eliminarPorIsbn(Long isbn) {
         try {
-            Libro libro = DAO.buscarPorID(dni);
+            Libro libro = DAO.buscarPorIsbn(isbn);
             DAO.eliminar(libro);
             return true;
         } catch (Exception e) {
@@ -67,6 +73,33 @@ public class LibroServicio {
             return DAO.listarTodos();
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Libro> buscarLibroPorTitulo(String titulo) {
+        try {
+            return DAO.buscarPorTitulo(titulo);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    
+    public List<Libro> buscarLibroPorAutor(String nombreAutor) {
+        try {
+            return DAO.buscarLibroPorAutor(nombreAutor);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    
+    public List<Libro> buscarLibroPorEditorial(String nombreEditorial) {
+        try {
+            return DAO.buscarLibroPorEditorial(nombreEditorial);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             return null;
         }
     }

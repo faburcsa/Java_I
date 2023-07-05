@@ -120,14 +120,6 @@ public class Libro implements Serializable {
     @OneToOne
     private Editorial editorial;
 
-    public Long getId() {
-        return isbn;
-    }
-
-    public void setId(Long isbn) {
-        this.isbn = isbn;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -149,11 +141,14 @@ public class Libro implements Serializable {
     }
 
     public Libro() {
+        this.alta = true;
     }
 
     @Override
     public String toString() {
-        return "entidades.Libro2[ id=" + isbn + " ]";
+        return "Libro{" + "isbn=" + isbn + ", titulo=" + titulo + ", anio=" + anio + ", ejemplares=" + ejemplares + ", ejemplaresPrestados=" + ejemplaresPrestados + ", ejemplaresRestantes=" + ejemplaresRestantes + ", alta=" + alta + ", autor=" + autor + ", editorial=" + editorial + '}';
     }
+
+
 
 }

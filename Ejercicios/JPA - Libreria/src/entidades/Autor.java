@@ -45,6 +45,7 @@ public class Autor implements Serializable {
     }
 
     public Autor() {
+        this.alta = true;
     }
 
     private String nombre;
@@ -77,10 +78,12 @@ public class Autor implements Serializable {
         }
         return true;
     }
+    
 
     @Override
     public String toString() {
-        return "entidades.Autor[ id=" + id + " ]";
+        return "Autor{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
     }
+
     
 }

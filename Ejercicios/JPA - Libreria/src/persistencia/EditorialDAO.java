@@ -54,7 +54,12 @@ public class EditorialDAO {
     public void eliminar(Editorial editorial) {
         conectar();
         em.getTransaction().begin();
-        em.remove(editorial);
+        //ERROR
+        // Entity must be managed to call remove: Editorial{id=151, nombre=Fabricion, alta=true}, try merging the detached and try the remove again.
+        //  Editorial detachedEditorial = entityManager.find(Editorial.class, 102); // Retrieve the detached entity by ID
+        //  Editorial mergedEditorial = entityManager.merge(detachedEditorial); // Merge the detached entity
+        em.remove(em.merge(em.find(Editorial.class, editorial.getId()))); // Remove the merged entity
+        //em.remove(editorial);
         em.getTransaction().commit();
         desconectar();
     }
@@ -77,9 +82,9 @@ public class EditorialDAO {
         return editoriales;
     }
 
-    public Editorial buscarPorID(String id) throws Exception {
+    public Editorial buscarPorID(Integer id) throws Exception {
         conectar();
-        Editorial editorial = (Editorial) em.createQuery("SELECT a FROM Editorial a WHERE a.id LIKE :id").setParameter("id", id).getSingleResult();
+        Editorial editorial = (Editorial) em.createQuery("SELECT a FROM Editorial a WHERE a.id LIKE :id").setParameter("id", id.toString()).getSingleResult();
         desconectar();
         return editorial;
     }
