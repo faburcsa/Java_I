@@ -30,7 +30,7 @@ public class JPALibreria {
     public static void main(String[] args) {
         Boolean outMenu = true;
         while (outMenu) {
-
+            //Me falta el editar Todos y eliminar Libro
             try {
                 System.out.println("MENU");
                 System.out.println("1 - Agregar Autor");
